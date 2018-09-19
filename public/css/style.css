@@ -1,6 +1,6 @@
 #chat {padding: 0 0 10px 0; margin: 0px; list-style: none;}
-.chat-bubble {margin-left: 100px; list-style: none; padding: 7px; margin: 4px; background-color: blue; color: white; border-radius: 15px; min-width: 300px;}
-.chat-bubble-self {margin-left: 50px; list-style: none; padding: 7px; margin: 4px; background-color: gray; color: white; border-radius: 15px; min-width: 300px;}
+.chat-bubble {margin-left: 100px; list-style: none; padding: 7px; margin: 4px; background-color: #f1f0f0; color: black; border-radius: 15px; min-width: 300px;}
+.chat-bubble-self {margin-left: 50px; list-style: none; padding: 7px; margin: 4px; background-color: #0084ff; color: white; border-radius: 15px; min-width: 300px;}
 .username {text-align: left;}
 .username-self {text-align: right; margin-right: 20px;}
 #lower {width: 50%; min-width: 300px;}
