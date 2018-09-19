@@ -6,7 +6,7 @@
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-		<link rel="stylesheet" href="./public/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
  
     <body>
@@ -17,7 +17,7 @@
 	        <ul id='chat'>
 	        </ul>
 	        <form id='message'>
-	        	<input type='text' id='m' required autofocus />
+	        	<input type='text' id='user_input' required autofocus />
 	        	<input type="submit" value="Send"/>
 	        </form>
         </div>
@@ -35,13 +35,23 @@
             // When submitted, the "message" is sent to the server
             $(function() {
 	            $('#message').submit(function () {
-	                socket.emit('message', $('#m').val());
-	                $('#m').val('');
+	                socket.emit('message', $('#user_input').val());
+	                $('#user_input').val('');
 	                return false;
 	            });
             });
 
-            // When there is a broadcast 'new_text', register it on the chat
+            socket.on('self_text_user', function(self_text_user) {
+                $('#chat').append("<li class='username-self'>"+self_text_user+"</li>");
+            });
+            socket.on('self_text', function(self_text) {
+                $('#chat').append("<li class='chat-bubble-self'>"+self_text+"</li>");
+            });
+
+            // When there is a 'new_text', register it on the chat
+            socket.on('new_text_user', function(new_text_user) {
+                $('#chat').append("<li class='username'>"+new_text_user+"</li>");
+            });
             socket.on('new_text', function(new_text) {
                 $('#chat').append("<li class='chat-bubble'>"+new_text+"</li>");
             });
