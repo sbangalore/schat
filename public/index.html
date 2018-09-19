@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Schat</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+		<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+		<link rel="stylesheet" href="./public/style.css">
+    </head>
+ 
+    <body>
+    	<div id='upper'>
+        	<h3>Simple Chat</h3>
+		</div>
+        <div id='lower'>
+	        <ul id='chat'>
+	        </ul>
+	        <form id='message'>
+	        	<input type='text' id='m' required autofocus />
+	        	<input type="submit" value="Send"/>
+	        </form>
+        </div>
+
+		<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect('http://localhost:8080');
+
+            // The visitor is asked for their username. This is sent to the server with a signal.
+            var username = prompt('What\'s your username?');
+            socket.emit('new_user', username);
+
+            // When submitted, the "message" is sent to the server
+            $(function() {
+	            $('#message').submit(function () {
+	                socket.emit('message', $('#m').val());
+	                $('#m').val('');
+	                return false;
+	            });
+            });
+
+            // When there is a broadcast 'new_text', register it on the chat
+            socket.on('new_text', function(new_text) {
+                $('#chat').append("<li class='chat-bubble'>"+new_text+"</li>");
+            });
+        </script>
+    </body>
+</html>

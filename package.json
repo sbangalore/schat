@@ -1,0 +1,11 @@
+{
+	"name": "simplechat",
+	"version": "0.1.0",
+	"dependencies": {
+		"express": "~4.11.0",
+		"socket.io": "~1.2",
+		"ent": "~0.1"
+	},
+	"author": "Sudarshan <bsudarshan@outlook.com>",
+	"description" : "Basic chat using socket.io"
+}
