@@ -1,9 +1,10 @@
 #chat {padding: 0 0 10px 0; margin: 0px; list-style: none;}
-.chat-bubble {margin-left: 100px; list-style: none; padding: 7px; margin: 4px; background-color: blue; color: white; border-radius: 15px; width: 50%; min-width: 300px;}
-.chat-bubble-self {margin-left: 50px; list-style: none; padding: 7px; margin: 4px; background-color: gray; color: white; border-radius: 15px; width: 50%; min-width: 300px;}
+.chat-bubble {margin-left: 100px; list-style: none; padding: 7px; margin: 4px; background-color: blue; color: white; border-radius: 15px; min-width: 300px;}
+.chat-bubble-self {margin-left: 50px; list-style: none; padding: 7px; margin: 4px; background-color: gray; color: white; border-radius: 15px; min-width: 300px;}
 .username {text-align: left;}
-.username-self {text-align: right;}
-#user_input {width: 50%; min-width: 300px;}
+.username-self {text-align: right; margin-right: 20px;}
+#lower {width: 50%; min-width: 300px;}
 body {position:fixed; bottom:10px; width:100%; margin-left: 20px;}
 input {padding: 5px; margin:5px 5px 0 0; border-radius: 5px;}
+#user_input {width: 90%;}
 ul {margin: 10px;}

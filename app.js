@@ -35,7 +35,7 @@ io.sockets.on('connection', function (socket, username) {
         socket.broadcast.emit('new_text_user', socket.username);
         socket.broadcast.emit('new_text', message);
         // Then, if the person wrote the text, this will also be emitted
-        socket.emit('self_text_user', username);
+        socket.emit('self_text_user', socket.username);
         socket.emit('self_text', message);
     });
 
